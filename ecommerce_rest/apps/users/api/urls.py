@@ -1,13 +1,7 @@
 from django.urls import include, path
 
-from .api import UserApiView
-
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-
-router.register(r'usuario', UserApiView, basename='usuario')
+from .api import user_api_view
 
 urlpatterns = [
-    path(r'', include(router.urls)),
+    path('usuario/', user_api_view, name='user_api'),
 ]
